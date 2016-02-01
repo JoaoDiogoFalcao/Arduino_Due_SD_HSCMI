@@ -49,7 +49,8 @@ Licence: GPL
 #endif
 
 // File handling
-
+#define FILE_WRITE true
+#define FILE_READ false
 #define MAX_FILES (10)
 #define FILE_BUF_LEN (256)
 #define WEB_DIR "0:/www/" 						// Place to find web files on the SD card
@@ -166,16 +167,13 @@ public:
 	void Duplicate();								// Create a second reference to this file
 	bool Flush();									// Write remaining buffer data
 	static float GetAndClearLongestWriteTime();		// Return the longest time it took to write a block to a file, in milliseconds
-
-protected:
+  bool inUse;
 
 	FileStore(void);//FileStore(Platform* p);
 	void Init();
 	bool Open(const char* directory, const char* fileName, bool write);
 
 private:
-
-	bool inUse;
 	byte buf[FILE_BUF_LEN];
 	int bufferPointer;
 	unsigned long bytesRead;
