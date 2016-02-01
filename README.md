@@ -17,7 +17,7 @@ Storage manipulation
 
 Creating a file
 ==============
-* Create a new FileStore with `FileStore f = new FileStore()`
+* Create a new FileStore with `FileStore * f = new FileStore()`
 * Initiate the File pointer with `f->Init()`
 * Open the File Structure with `f->Open([DIRECTORY], [FILENAME], [FILE_WRITE | FILE_READ])`
 * Write with `f->Write([BUFFER], [LENGHT]);`
