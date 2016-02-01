@@ -12,7 +12,7 @@ Install
 
 Storage manipulation
 ==============
-* The `SD` object will be created on `#include <Arduino_Due_SD_HSCMI>`
+* The `SD` object will be created on `#include <Arduino_Due_SD_HSCMI.h>`
 * Use `SD.MakeDirectory` to create a directory
 
 Creating a file
@@ -26,7 +26,7 @@ Creating a file
 Arduino Wiring
 ==============
 ## Arduino_Due_SD_HSCMI.h
-Change following values to match the wiring of your board. 
+Change following values to match the wiring of your board.
 ```
 static const uint8_t PIN_HSMCI_CARD_DETECT = 77;
 static const uint8_t PIN_HSMCI_MCCDA_GPIO  = 101;
