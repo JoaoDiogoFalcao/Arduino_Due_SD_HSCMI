@@ -289,7 +289,7 @@ void MassStorage::Init()
   digitalWrite(PIN_HSMCI_MCDA1_GPIO_ARDUINO, HIGH);
   digitalWrite(PIN_HSMCI_MCDA2_GPIO_ARDUINO, HIGH);
   digitalWrite(PIN_HSMCI_MCDA3_GPIO_ARDUINO, HIGH);
-  pinMode(PIN_HSMCI_CARD_DETECT, INPUT);
+  pinMode(PIN_HSMCI_CARD_DETECT_ARDUINO, INPUT);
 
 
 	sd_mmc_init();

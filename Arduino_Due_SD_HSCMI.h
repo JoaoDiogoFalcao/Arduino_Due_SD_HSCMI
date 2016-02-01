@@ -296,7 +296,7 @@ private:
 };
 
 //HSMCI
-static const uint8_t PIN_HSMCI_CARD_DETECT = 77;
+
 static const uint8_t PIN_HSMCI_MCCDA_GPIO  = 101;
 static const uint8_t PIN_HSMCI_MCCK_GPIO  = 102;
 static const uint8_t PIN_HSMCI_MCDA0_GPIO  = 103;
@@ -304,6 +304,7 @@ static const uint8_t PIN_HSMCI_MCDA1_GPIO  = 104;
 static const uint8_t PIN_HSMCI_MCDA2_GPIO  = 105;
 static const uint8_t PIN_HSMCI_MCDA3_GPIO  = 106;
 
+static const uint8_t PIN_HSMCI_CARD_DETECT_ARDUINO = 77;
 static const uint8_t PIN_HSMCI_MCCDA_GPIO_ARDUINO  = 43;
 static const uint8_t PIN_HSMCI_MCCK_GPIO_ARDUINO  = 42;
 static const uint8_t PIN_HSMCI_MCDA0_GPIO_ARDUINO  = 73;

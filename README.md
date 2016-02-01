@@ -1,7 +1,7 @@
 SD HSCMI for the Arduino Due
 ==============
 Firmware for Arduino Due SD HSCMI Card.
-Pin wiring set for the PowerDué
+Pin wiring set for the PowerDué.
 Reference for PowerDué lab for Low Power System on Chip Spring 2016 at CMU-SV.
 
 Install
@@ -25,7 +25,7 @@ Creating a file
 
 Arduino Wiring
 ==============
-## Arduino_Due_SD_HSCMI.h
+### Arduino_Due_SD_HSCMI.h
 Change following values to match the wiring of your board.
 ```
 static const uint8_t PIN_HSMCI_CARD_DETECT = 77;
