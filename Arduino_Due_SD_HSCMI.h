@@ -8,7 +8,7 @@ Adapted from:
 Version 0.0.1
 26 August 2016
 Joao Diogo Falcao
-Licence: GPL
+Licence: MIT
 
 ****************************************************************************************************/
 
