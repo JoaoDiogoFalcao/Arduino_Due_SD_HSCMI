@@ -8,7 +8,6 @@ Install
 ==============
 1. Download the files
 2. Move the folder `Arduino_Due_SD_HSCMI` to your Arduino Libraries
-3. Move the folder `SD_HSMCI` to your Arduino Libraries (Same level as `Arduino_Due_SD_HSCMI`)
 
 Storage manipulation
 ==============
