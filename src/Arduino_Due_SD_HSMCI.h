@@ -19,11 +19,10 @@ Licence: MIT
 #define SD_DEBUG true
 
 // Language-specific includes
-#include <cctype>
-#include <cstring>
-#include <malloc.h>
-#include <cstdlib>
-#include <climits>
+#include <ctype.h>
+#include <string.h>
+#include <stdlib.h>
+#include <limits.h>
 
 // Platform-specific includes
 #include "Arduino.h"
