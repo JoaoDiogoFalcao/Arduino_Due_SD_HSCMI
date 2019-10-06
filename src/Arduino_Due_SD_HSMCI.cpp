@@ -1,32 +1,32 @@
-#include "Arduino_Due_SD_HSCMI.h"
-#include <SD_HSMCI.h>
+#include "Arduino_Due_SD_HSMCI.h"
+#include "SD_HSMCI/SD_HSMCI.h"
 
 /*
  * Debug Functions (Change output channel if needed)
  */
 void Debug(const char* header, const char* msg){
-  if(SerialUSB && SD_DEBUG){
-    SerialUSB.print(header);
-    SerialUSB.print(": ");
-    SerialUSB.print(msg);
+  if(Serial && SD_DEBUG){
+    Serial.print(header);
+    Serial.print(": ");
+    Serial.print(msg);
   }
 }
 
 void Debug(const char* header, unsigned char msg){
-  if(SerialUSB && SD_DEBUG){
-    SerialUSB.print(header);
-    SerialUSB.print(": ");
-    SerialUSB.print(msg);
+  if(Serial && SD_DEBUG){
+    Serial.print(header);
+    Serial.print(": ");
+    Serial.print(msg);
   }
 }
 void Debug(unsigned char msg){
-  if(SerialUSB && SD_DEBUG){
-    SerialUSB.print(msg);
+  if(Serial && SD_DEBUG){
+    Serial.print(msg);
   }
 }
 void Debug(const char* msg){
-  if(SerialUSB && SD_DEBUG){
-    SerialUSB.print(msg);
+  if(Serial && SD_DEBUG){
+    Serial.print(msg);
   }
 }
 
