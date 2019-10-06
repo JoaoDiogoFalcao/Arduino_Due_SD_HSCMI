@@ -67,6 +67,7 @@ Licence: MIT
 #define AUX_BAUD_RATE 57600						// Default communication speed for AUX devices
 
 
+
 enum IOStatus
 {
   nothing = 0,
@@ -134,6 +135,7 @@ public:
 //protected:
   MassStorage(void);//MassStorage(Platform* p);
   void Init();
+  void Init(Print *argDebugStream);
 
 private:
 

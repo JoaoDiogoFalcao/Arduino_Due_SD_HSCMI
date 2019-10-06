@@ -4,29 +4,33 @@
 /*
  * Debug Functions (Change output channel if needed)
  */
+
+
+   Print *myDebugStream = nullptr;
+
 void Debug(const char* header, const char* msg){
-  if(Serial && SD_DEBUG){
-    Serial.print(header);
-    Serial.print(": ");
-    Serial.print(msg);
+  if(myDebugStream && SD_DEBUG){
+    myDebugStream->print(header);
+    myDebugStream->print(": ");
+    myDebugStream->println(msg);
   }
 }
 
 void Debug(const char* header, unsigned char msg){
-  if(Serial && SD_DEBUG){
-    Serial.print(header);
-    Serial.print(": ");
-    Serial.print(msg);
+  if(myDebugStream && SD_DEBUG){
+    myDebugStream->print(header);
+    myDebugStream->print(": ");
+    myDebugStream->println(msg);
   }
 }
 void Debug(unsigned char msg){
-  if(Serial && SD_DEBUG){
-    Serial.print(msg);
+  if(myDebugStream && SD_DEBUG){
+    myDebugStream->println(msg);
   }
 }
 void Debug(const char* msg){
-  if(Serial && SD_DEBUG){
-    Serial.print(msg);
+  if(myDebugStream && SD_DEBUG){
+    myDebugStream->println(msg);
   }
 }
 
@@ -270,6 +274,13 @@ MassStorage::MassStorage() : combinedName(combinedNameBuff, ARRAY_SIZE(combinedN
 {
 	memset(&fileSystem, 0, sizeof(FATFS));
 	findDir = new DIR();
+}
+
+void MassStorage::Init(Print *argDebugStream){
+
+  myDebugStream = argDebugStream;
+
+  Init();
 }
 
 void MassStorage::Init()
