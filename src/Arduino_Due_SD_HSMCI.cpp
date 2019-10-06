@@ -6,10 +6,10 @@
  */
 
 
-   Print *myDebugStream = nullptr;
+   HardwareSerial *myDebugStream = nullptr;
 
 void Debug(const char* header, const char* msg){
-  if(myDebugStream && SD_DEBUG){
+  if(myDebugStream){
     myDebugStream->print(header);
     myDebugStream->print(": ");
     myDebugStream->println(msg);
@@ -17,19 +17,19 @@ void Debug(const char* header, const char* msg){
 }
 
 void Debug(const char* header, unsigned char msg){
-  if(myDebugStream && SD_DEBUG){
+  if(myDebugStream){
     myDebugStream->print(header);
     myDebugStream->print(": ");
     myDebugStream->println(msg);
   }
 }
 void Debug(unsigned char msg){
-  if(myDebugStream && SD_DEBUG){
+  if(myDebugStream){
     myDebugStream->println(msg);
   }
 }
 void Debug(const char* msg){
-  if(myDebugStream && SD_DEBUG){
+  if(myDebugStream){
     myDebugStream->println(msg);
   }
 }
@@ -276,12 +276,16 @@ MassStorage::MassStorage() : combinedName(combinedNameBuff, ARRAY_SIZE(combinedN
 	findDir = new DIR();
 }
 
-void MassStorage::Init(Print *argDebugStream){
+void MassStorage::Init(HardwareSerial *argDebugStream){
 
   myDebugStream = argDebugStream;
 
+  myDebugStream->begin(DEBUG_BAUD_RATE);
+
   Init();
 }
+
+
 
 void MassStorage::Init()
 {
