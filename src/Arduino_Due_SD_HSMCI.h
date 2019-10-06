@@ -16,19 +16,16 @@ Licence: MIT
 #define PLATFORM_H
 
 
-#define SD_DEBUG true
-
 // Language-specific includes
-#include <cctype>
-#include <cstring>
-#include <malloc.h>
-#include <cstdlib>
-#include <climits>
+#include <ctype.h>
+#include <string.h>
+#include <stdlib.h>
+#include <limits.h>
 
 // Platform-specific includes
 #include "Arduino.h"
 #include "Configuration.h"
-#include <SD_HSMCI.h>
+#include "SD_HSMCI/SD_HSMCI.h"
 
 /**************************************************************************************************/
 
@@ -64,8 +61,9 @@ Licence: MIT
 
 // Miscellaneous...
 
-#define BAUD_RATE 115200 						// Communication speed of the USB if needed.
+#define DEBUG_BAUD_RATE 9600 						// Communication speed of the debug interface
 #define AUX_BAUD_RATE 57600						// Default communication speed for AUX devices
+
 
 
 enum IOStatus
@@ -135,6 +133,7 @@ public:
 //protected:
   MassStorage(void);//MassStorage(Platform* p);
   void Init();
+  void Init(HardwareSerial *argDebugStream);
 
 private:
 

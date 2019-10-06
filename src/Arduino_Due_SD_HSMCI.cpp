@@ -1,32 +1,36 @@
-#include "Arduino_Due_SD_HSCMI.h"
-#include <SD_HSMCI.h>
+#include "Arduino_Due_SD_HSMCI.h"
+#include "SD_HSMCI/SD_HSMCI.h"
 
 /*
  * Debug Functions (Change output channel if needed)
  */
+
+
+   HardwareSerial *myDebugStream = nullptr;
+
 void Debug(const char* header, const char* msg){
-  if(SerialUSB && SD_DEBUG){
-    SerialUSB.print(header);
-    SerialUSB.print(": ");
-    SerialUSB.print(msg);
+  if(myDebugStream){
+    myDebugStream->print(header);
+    myDebugStream->print(": ");
+    myDebugStream->println(msg);
   }
 }
 
 void Debug(const char* header, unsigned char msg){
-  if(SerialUSB && SD_DEBUG){
-    SerialUSB.print(header);
-    SerialUSB.print(": ");
-    SerialUSB.print(msg);
+  if(myDebugStream){
+    myDebugStream->print(header);
+    myDebugStream->print(": ");
+    myDebugStream->println(msg);
   }
 }
 void Debug(unsigned char msg){
-  if(SerialUSB && SD_DEBUG){
-    SerialUSB.print(msg);
+  if(myDebugStream){
+    myDebugStream->println(msg);
   }
 }
 void Debug(const char* msg){
-  if(SerialUSB && SD_DEBUG){
-    SerialUSB.print(msg);
+  if(myDebugStream){
+    myDebugStream->println(msg);
   }
 }
 
@@ -271,6 +275,17 @@ MassStorage::MassStorage() : combinedName(combinedNameBuff, ARRAY_SIZE(combinedN
 	memset(&fileSystem, 0, sizeof(FATFS));
 	findDir = new DIR();
 }
+
+void MassStorage::Init(HardwareSerial *argDebugStream){
+
+  myDebugStream = argDebugStream;
+
+  myDebugStream->begin(DEBUG_BAUD_RATE);
+
+  Init();
+}
+
+
 
 void MassStorage::Init()
 {
